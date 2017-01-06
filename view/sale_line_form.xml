@@ -3,7 +3,10 @@
      copyright notices and license terms. -->
 <data>
     <xpath expr="/form/notebook/page/field[@name='product']" position="after">
+        <newline/>
         <label name="lot"/>
-        <field name="lot"/>
+        <field name="lot" colspan="2"
+            view_ids="nodux_sale_lot.sale_lot_view_tree_sequence"/>
+        <newline/>
     </xpath>
 </data>

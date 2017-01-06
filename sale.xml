@@ -15,5 +15,26 @@
             <field name="inherit" ref="sale.sale_line_view_tree_sequence"/>
             <field name="name">sale_line_tree</field>
         </record>
+
+        <record model="ir.ui.view" id="sale_lot_view_form">
+            <field name="model">sale.lot</field>
+            <field name="type">form</field>
+            <field name="name">sale_lot_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="sale_lot_view_tree">
+            <field name="model">sale.lot</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="10"/>
+            <field name="name">sale_lot_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="sale_lot_view_tree_sequence">
+            <field name="model">sale.lot</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="20"/>
+            <field name="name">sale_lot_tree_sequence</field>
+        </record>
+
    </data>
 </tryton>
