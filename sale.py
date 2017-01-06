@@ -31,8 +31,17 @@ class SaleLine:
             return
         return self.product.type
 
+    @fields.depends('product', 'lot', 'description')
+    def on_change_lot(self):
+        res = {}
+        if self.lot and self.product:
+            if self.description:
+                res['description'] = self.description + " Series: "+self.lot.number
+            else:
+                res['description'] = self.product.template.name + " Series: "+self.lot.number
+        return res
+
     def get_move(self, shipment_type):
-        print "Ingresa aqu"
         move = super(SaleLine, self).get_move(shipment_type)
         if move and self.lot:
             move.lot = self.lot
