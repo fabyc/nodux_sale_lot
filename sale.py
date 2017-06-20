@@ -52,11 +52,12 @@ class SaleLine:
         move = super(SaleLine, self).get_move(shipment_type)
 
         if move and self.lot:
-            for lote in self.lot:
-                move.lot = lote.lot
-                lot = lote.lot
-                lot.used_lot = 'used'
-                lot.save()
+            if self.lot:
+                for lote in self.lot:
+                    move.lot = lote.lot
+                    lot = lote.lot
+                    lot.used_lot = 'used'
+                    lot.save()
         return move
 
 
